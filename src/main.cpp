@@ -1,6 +1,7 @@
+#include "stream.h"
 #include <iostream>
-
 int main() {
-  std::cout << "Hello, World!" << std::endl;
+  Stream s;
+  //TODO: createSocket
   return 0;
 }

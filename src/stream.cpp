@@ -1,5 +1,6 @@
 #include "stream.h"
-Stream::Stream() : fd_(-1), childStream_(false) {}
+
+Stream::Stream() : fd_(-1) {}
 
 Stream::~Stream() {
   if (fd_ != -1) {
@@ -8,8 +9,6 @@ Stream::~Stream() {
 }
 
 void Stream::Attach(int fd) { fd_ = fd; }
-
-void Stream::MarkChild() { childStream_ = true; }
 
 bool Stream::CanRead(int timeout) {
   struct pollfd pf;
@@ -26,12 +25,12 @@ bool Stream::CanRead(int timeout) {
   return false;
 }
 
-void Stream::Send(const ::google::protobuf::Message &cmd) {}
+// void Stream::Send(const ::google::protobuf::Message &cmd) {}
 
-bool Stream::Recv(::google::protobuf::Message &cmd) {}
+// bool Stream::Recv(::google::protobuf::Message &cmd) {}
 
 int Stream::fd() { return fd_; }
 
 void Stream::WriteAll(const char *buf, int n) {}
 
-bool Stream::ReadFull(char *buf, int i) {}
+// bool Stream::ReadFull(char *buf, int i) {}
